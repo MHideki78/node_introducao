@@ -1,4 +1,5 @@
 require("dotenv/config");
+require("./database");
 
 const express = require("express");
 const exprhbs = require("express-handlebars");
