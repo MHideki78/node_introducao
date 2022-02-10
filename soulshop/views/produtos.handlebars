@@ -37,16 +37,23 @@
               <div class="d-flex">
                 <div>
                   <a
-                    href="/produtos/editar"
+                    href="/produtos/editar/{{this._id}}"
                     class="btn btn-sm btn-warning mx-1"
                   >
                     <i class="bi bi-pencil"></i>
                   </a>
                 </div>
                 <div>
-                  <a href="/produtos/deletar" class="btn btn-sm btn-danger">
-                    <i class="bi bi-trash"></i>
-                  </a>
+                  <form action="/produtos/deletar" method="POST">
+                    <input
+                      name="id"
+                      type="hidden"
+                      value="{{this._id}}"
+                    />
+                    <button class="btn btn-sm btn-danger">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </form>
                 </div>
               </div>
             </td>

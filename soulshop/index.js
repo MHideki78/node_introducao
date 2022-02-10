@@ -13,7 +13,7 @@ app.use(express.static("public"));
 app.engine("handlebars", exprhbs.engine());
 app.set("view engine", "handlebars");
 
-const produtosRoutes = require("./routes/produtosRoutes");
-app.use(produtosRoutes);
+const routes = require("./routes");
+app.use(routes);
 
 app.listen(3000);

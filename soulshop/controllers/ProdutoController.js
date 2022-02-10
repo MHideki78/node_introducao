@@ -24,6 +24,27 @@ class ProdutoController {
 
     res.redirect("/produtos");
   }
+
+  static async paginaEditProduto(req, res) {
+    const { id } = req.params;
+    const produto = await Produto.findById(id).lean();
+
+    res.render("editar_produto", { produto });
+  }
+
+  static async editProduto(req, res) {
+    const { id, name, price, description, quantity } = req.body;
+
+    await Produto.findByIdAndUpdate(id, { name, price, description, quantity });
+
+    res.redirect("/produtos");
+  }
+
+  static async deleteProduto(req, res) {
+    const { id } = req.body;
+    await Produto.findByIdAndDelete(id);
+    res.redirect("/produtos");
+  }
 }
 
 module.exports = ProdutoController;
