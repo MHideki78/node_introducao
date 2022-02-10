@@ -19,7 +19,9 @@ class ProdutoController {
 
   static async addProduto(req, res) {
     const { name, price, description, quantity } = req.body;
-    const produto = Produto({ name, price, description, quantity });
+
+    const imageUrl = req.file.publicUrl;
+    const produto = Produto({ name, price, description, quantity, imageUrl });
     await produto.save();
 
     res.redirect("/produtos");
